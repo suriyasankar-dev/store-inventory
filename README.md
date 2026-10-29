@@ -1,4 +1,4 @@
-# Store Inventory API
+# Store Inventory Prompt
 
 A small Laravel API for maintaining a product catalog, recording customer orders, and keeping stock synchronized.
 
