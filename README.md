@@ -2,6 +2,29 @@
 
 A small Laravel API for maintaining a product catalog, recording customer orders, and keeping stock synchronized.
 
+## Project Brief
+
+Build a small Laravel retail-counter application that records customer orders against a product catalog and keeps inventory in sync.
+
+### Scope
+
+- Products have a name, unique code, unit price, tax percentage, and stock on hand.
+- Customers have a name and unique email address.
+- Orders belong to one customer and contain one or more product/quantity lines, with computed subtotal, tax, and grand total.
+- Seed sample products and customers with factories and seeders.
+
+### Requirements
+
+- Use a normalized relational schema and Eloquent relationships.
+- Provide an API to create an order from customer name/email and product IDs/quantities. Validate stock, calculate tax and totals, deduct stock, and return the created order.
+- Provide customer order history by email and a low-stock product endpoint with a configurable threshold.
+- Queue an order-confirmation job; logging the confirmation is sufficient and does not require SMTP.
+- Cover order creation and an edge case such as insufficient stock with feature tests.
+- Prevent overselling under concurrent orders by checking and deducting stock transactionally while locking product rows.
+- Document setup and implementation assumptions.
+
+The counter interface includes customer email/name, searchable product rows with quantities, a low-stock alert, payment totals, amount received/change, and bill generation.
+
 ## Setup
 
 Requirements: PHP 8.2+, Composer, and MySQL (InnoDB) or SQLite.
